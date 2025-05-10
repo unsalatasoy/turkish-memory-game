@@ -1,4 +1,4 @@
-export type PairType = 'synonym' | 'antonym';
+export type PairType = "synonym" | "antonym";
 
 export interface WordPair {
   word1: string;
@@ -9,7 +9,24 @@ export interface WordPair {
 export interface Card {
   id: number;
   word: string;
-  pairId: number;
   isFlipped: boolean;
   isMatched: boolean;
+  pairId: number;
+  matchedBy?: string;  // Player ID who matched this card
+}
+
+export interface Player {
+  id: string;
+  nickname: string;
+  avatar: string;
+  score: number;
+}
+
+export interface GameState {
+  players: Player[];
+  currentTurn: string;
+  cards: Card[];
+  gameStarted: boolean;
+  gameOver: boolean;
+  mode: PairType | null;
 }
