@@ -1,4 +1,4 @@
-import express, { Express, Request, Response } from 'express';
+import express from 'express';
 import { createServer } from 'http';
 import { Server } from 'socket.io';
 import cors from 'cors';
@@ -9,7 +9,19 @@ import { Card, GameState, PairType, Player } from './types';
 
 dotenv.config();
 
-const app: Express = express();
+interface SocketData {
+  mode: PairType;
+  nickname: string;
+  avatar: string;
+  roomId: string;
+  cardIndices: number[];
+}
+
+interface JoinRoomCallback {
+  (response: { success: boolean; message: string }): void;
+}
+
+const app = express();
 app.use(cors({
   origin: ['http://localhost:3000', 'https://unsalatasoy.github.io'],
   methods: ['GET', 'POST'],
@@ -94,7 +106,7 @@ io.on('connection', (socket) => {
 
   socket.emit('activeRooms', getActiveRooms());
 
-  socket.on('createRoom', ({ mode, nickname, avatar }) => {
+  socket.on('createRoom', ({ mode, nickname, avatar }: SocketData) => {
     const roomId = Math.random().toString(36).substring(2, 8);
     const player: Player = {
       id: socket.id,
@@ -119,7 +131,7 @@ io.on('connection', (socket) => {
     io.emit('activeRooms', getActiveRooms());
   });
 
-  socket.on('joinRoom', ({ roomId, nickname, avatar }, callback) => {
+  socket.on('joinRoom', ({ roomId, nickname, avatar }: SocketData, callback: JoinRoomCallback) => {
     if (!rooms[roomId]) {
       callback({ success: false, message: 'Room not found' });
       return;
@@ -146,7 +158,7 @@ io.on('connection', (socket) => {
     io.emit('activeRooms', getActiveRooms());
   });
 
-  socket.on('checkMatch', ({ roomId, cardIndices }) => {
+  socket.on('checkMatch', ({ roomId, cardIndices }: SocketData) => {
     const room = rooms[roomId];
     if (!room) return;
 

@@ -29,4 +29,12 @@ export interface GameState {
   gameStarted: boolean;
   gameOver: boolean;
   mode: PairType;
+  creator: Player;
+}
+
+export interface ActiveRoom {
+  id: string;
+  creator: Player;
+  mode: PairType;
+  playerCount: number;
 } 
