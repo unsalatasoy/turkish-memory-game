@@ -2,7 +2,7 @@ import { io } from "socket.io-client";
 
 // Use Render.com URL for production, localhost for development
 const SOCKET_URL = process.env.NODE_ENV === 'production' 
-  ? 'https://your-app-name.onrender.com'  // Replace with your Render.com URL
+  ? 'https://turkish-memory-game.onrender.com'  // Replace with your Render.com URL
   : 'http://localhost:3001';
 
 console.log('Environment:', process.env.NODE_ENV);
