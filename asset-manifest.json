@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/turkish-memory-game/static/css/main.74718002.css",
-    "main.js": "/turkish-memory-game/static/js/main.5cdafdb2.js",
+    "main.css": "/turkish-memory-game/static/css/main.f73e82e4.css",
+    "main.js": "/turkish-memory-game/static/js/main.e6d66cd9.js",
     "static/js/453.29d4ff11.chunk.js": "/turkish-memory-game/static/js/453.29d4ff11.chunk.js",
     "index.html": "/turkish-memory-game/index.html",
-    "main.74718002.css.map": "/turkish-memory-game/static/css/main.74718002.css.map",
-    "main.5cdafdb2.js.map": "/turkish-memory-game/static/js/main.5cdafdb2.js.map",
+    "main.f73e82e4.css.map": "/turkish-memory-game/static/css/main.f73e82e4.css.map",
+    "main.e6d66cd9.js.map": "/turkish-memory-game/static/js/main.e6d66cd9.js.map",
     "453.29d4ff11.chunk.js.map": "/turkish-memory-game/static/js/453.29d4ff11.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.74718002.css",
-    "static/js/main.5cdafdb2.js"
+    "static/css/main.f73e82e4.css",
+    "static/js/main.e6d66cd9.js"
   ]
 }
