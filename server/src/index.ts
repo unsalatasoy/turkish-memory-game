@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Express, Request, Response } from 'express';
 import { createServer } from 'http';
 import { Server } from 'socket.io';
 import cors from 'cors';
@@ -9,7 +9,7 @@ import { Card, GameState, PairType, Player } from './types';
 
 dotenv.config();
 
-const app = express();
+const app: Express = express();
 app.use(cors({
   origin: ['http://localhost:3000', 'https://unsalatasoy.github.io'],
   methods: ['GET', 'POST'],
