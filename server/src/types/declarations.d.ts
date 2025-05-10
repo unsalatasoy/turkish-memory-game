@@ -6,6 +6,7 @@ declare module 'express' {
   export interface Express {
     use: (middleware: any) => Express;
     listen: (port: number, callback?: () => void) => HttpServer;
+    json: () => any;
   }
   export interface Request {
     body: any;
